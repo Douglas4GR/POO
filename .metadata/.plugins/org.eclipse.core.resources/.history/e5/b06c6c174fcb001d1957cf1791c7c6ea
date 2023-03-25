@@ -1,0 +1,10 @@
+package br.edu.faeterj;
+
+public class Calculadora {
+	//calculator development 
+	public int Soma(int a,int b)
+	{
+		return a+b;
+	}
+
+}

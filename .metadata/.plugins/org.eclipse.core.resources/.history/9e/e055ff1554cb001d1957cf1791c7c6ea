@@ -1,0 +1,37 @@
+package br.edu.faeterj;
+
+public class Calculadora {
+	//calculator development 
+	
+	public void mostrarOpc()
+	{
+		System.out.println("Selecione uma opcao: ");
+		System.out.println("0 - Soma");
+		System.out.println("1 - Subtracao");
+		System.out.println("2 - Multiplicacao");
+		System.out.println("3 - Divisao");
+		System.out.println("4 - Sair do programa");
+	}
+	
+	//operations
+	public int Soma(int a,int b)
+	{
+		return a+b;
+	}
+	
+	public int Subt(int a,int b)
+	{
+		return a-b;
+	}
+	
+	public int Mult(int a,int b)
+	{
+		return a*b;
+	}
+	
+	public int Divi(int a,int b)
+	{
+		return a/b;
+	}
+
+}

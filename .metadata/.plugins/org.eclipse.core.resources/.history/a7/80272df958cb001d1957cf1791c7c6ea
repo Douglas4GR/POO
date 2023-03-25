@@ -30,11 +30,12 @@ public class Main {
 				//collecting values
 				System.out.println("Valor 2: ");
 				valor2 = sc.nextInt();
-				//doing operation (valor1, now result will be used as long as the user wants to)
+				//doing operation
 				valor1 = calc.Selec(opcao, valor1, valor2);
 				System.out.println("Resultado: "+ valor1);
 			}
 		}
 		sc.close();
 	}
+
 }

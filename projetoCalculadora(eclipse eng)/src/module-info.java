@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Douglas
- *
- */
-module projetoCalculadora {
-}

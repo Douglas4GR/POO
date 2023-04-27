@@ -8,7 +8,7 @@ public class CalculadoraController {
 
     public CalculadoraController() { //construtor
         sc = new Scanner(System.in);
-        calc = new Calculadora();
+        //calc = new Calculadora();
     }
 
     public void calcular() { //metodo para calcular
@@ -66,17 +66,17 @@ public class CalculadoraController {
         double resultadoInt = 0;
 
         switch(opcao) {
-            case 1: resultadoInt = calc.Soma(valor1, valor2); break;
-            case 2: resultadoInt = calc.Subt(valor1, valor2); break;
-            case 3: resultadoInt = calc.Mult(valor1, valor2); break;
-            case 4: resultadoInt = calc.Divi(valor1, valor2); break;
-            case 5: resultadoInt = calc.Pot(valor1, valor2); break;
-            case 6: resultadoInt = calc.Raiz(valor1); break;
-            case 7: resultadoInt = calc.Fatorial(valor1); break;
-            case 8: resultadoInt = calc.Log(valor1); break;
-            case 9: resultadoInt = calc.Seno(valor1); break;
-            case 10: resultadoInt = calc.Cosseno(valor1); break;
-            case 11: resultadoInt = calc.Tangente(valor1); break;
+            case 1: resultadoInt = Calculadora.Soma(valor1, valor2); break;
+            case 2: resultadoInt = Calculadora.Subt(valor1, valor2); break;
+            case 3: resultadoInt = Calculadora.Mult(valor1, valor2); break;
+            case 4: resultadoInt = Calculadora.Divi(valor1, valor2); break;
+            case 5: resultadoInt = Calculadora.Pot(valor1, valor2); break;
+            case 6: resultadoInt = Calculadora.Raiz(valor1); break;
+            case 7: resultadoInt = Calculadora.Fatorial(valor1); break;
+            case 8: resultadoInt = Calculadora.Log(valor1); break;
+            case 9: resultadoInt = Calculadora.Seno(valor1); break;
+            case 10: resultadoInt = Calculadora.Cosseno(valor1); break;
+            case 11: resultadoInt = Calculadora.Tangente(valor1); break;
             default: System.out.println("Opcao invalida"); break;
         }
         return resultadoInt;

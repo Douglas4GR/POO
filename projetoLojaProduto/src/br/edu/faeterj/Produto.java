@@ -11,7 +11,15 @@ public class Produto {
 	String descricao;
 	int codBarra;
 
-	public void criarProduto() {
+	public Produto (String nome, double valor, int quantidade, String descricao, int codBarra) {
+		this.nome = nome;
+		this.valor = valor;
+		this.quantidade = quantidade;
+		this.descricao = descricao;
+		this.codBarra = codBarra;
+	}
+
+	/*public void criarProduto() {
 		System.out.println("Digite as info do produto:");
 
 		System.out.println("nome:");
@@ -29,7 +37,7 @@ public class Produto {
 		System.out.println("cod barra:");
 		codBarra = sc.nextInt();
 
-	}
+	}*/
 
 	public void mostrarLProduto(ArrayList<Produto> listaProduto) {
 		for (int i = 0; i < listaProduto.size(); i++) {

@@ -12,7 +12,6 @@ public class Produto {
 	String descricao;
 	int quantidade;
 
-
 	public Produto (String nome, double valor, int codBarra, int idCategoria, String descricao, int quantidade) {
 		this.nome = nome;
 		this.valor = valor;

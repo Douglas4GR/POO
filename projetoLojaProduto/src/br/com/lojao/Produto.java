@@ -22,49 +22,11 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	/*public void criarProduto() {
-		System.out.println("Digite as info do produto:");
-
-		System.out.println("nome:");
-		nome = sc.next();
-
-		System.out.println("valor:");
-		valor = sc.nextDouble();
-
-		System.out.println("quantidade:");
-		quantidade = sc.nextInt();
-
-		System.out.println("descricao:");
-		descricao = sc.next();
-
-		System.out.println("cod barra:");
-		codBarra = sc.nextInt();
-
-	}*/
-
-	public void mostrarLProduto(ArrayList<Produto> listaProduto) {
-		for (Produto produto : listaProduto) {
-			System.out.println("");
-			System.out.println("nome: " + produto.nome);
-			System.out.println("valor: " + produto.valor);
-			System.out.println("cod barra: " + produto.codBarra);
-			System.out.println("id categoria: " + produto.idCategoria);
-			System.out.println("descricao: " + produto.descricao);
-			System.out.println("quantidade: " + produto.quantidade);
-		}
-	}
-
-	public void mostrarProduto(Produto produto) {
-		System.out.println("");
-		System.out.println("nome: " + produto.nome);
-		System.out.println("valor: " + produto.valor);
-		System.out.println("cod barra: " + produto.codBarra);
-		System.out.println("id categoria: " + produto.idCategoria);
-		System.out.println("descricao: " + produto.descricao);
-		System.out.println("quantidade: " + produto.quantidade);
-	}
-
 	public String detalhesProduto() {
 		return "nome: " + nome + "\nvalor: " + valor + "\ncod barra: " + codBarra + "\nid categoria: " + idCategoria + "\ndescricao: " + descricao + "\nquantidade: " + quantidade;
+	}
+
+	public String linhaOutProduto() {
+		return nome + ";" + valor + ";" + codBarra + ";" + idCategoria + ";" + descricao + ";" + quantidade + "\n";
 	}
 }

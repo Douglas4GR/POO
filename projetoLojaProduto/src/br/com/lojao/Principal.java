@@ -2,6 +2,8 @@ package br.com.lojao;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Principal {
 
@@ -43,7 +45,20 @@ public class Principal {
 			int fim2 = sc.nextInt();
 			fim = fim2;
 		}while (fim == 0);
+		sc.close();
+		try {
+			fileWriter prodFile = new fileWriter("listaProdutos.txt");
+			prodFile.writeToFile("nome;valor;codBarra;idCategoria;descricao;quantidade");
+			for (int i = 0; i < lProd.size(); i++) {
+				prodFile.writeToFile(lProd.get(i).linhaOutProduto());
+			}
+			prodFile.closeFile();
+		}
 
-//		exibir.mostrarLProduto(lProd);
+		catch (IOException e) {
+			//TODO auto-generated catch block
+			System.out.println("Erro ao escrever no arquivo");
+			e.PrintStackTrace();
+		}
 	}
 }

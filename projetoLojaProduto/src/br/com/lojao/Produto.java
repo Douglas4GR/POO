@@ -4,19 +4,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Produto {
-	Scanner sc = new Scanner(System.in);
+//	Scanner sc = new Scanner(System.in);
 	String nome;
 	double valor;
-	int quantidade;
-	String descricao;
 	int codBarra;
+	int idCategoria;
+	String descricao;
+	int quantidade;
 
-	public Produto (String nome, double valor, int quantidade, String descricao, int codBarra) {
+
+	public Produto (String nome, double valor, int codBarra, int idCategoria, String descricao, int quantidade) {
 		this.nome = nome;
 		this.valor = valor;
-		this.quantidade = quantidade;
-		this.descricao = descricao;
 		this.codBarra = codBarra;
+		this.idCategoria = idCategoria;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
 	}
 
 	/*public void criarProduto() {
@@ -40,13 +43,14 @@ public class Produto {
 	}*/
 
 	public void mostrarLProduto(ArrayList<Produto> listaProduto) {
-		for (int i = 0; i < listaProduto.size(); i++) {
+		for (Produto produto : listaProduto) {
 			System.out.println("");
-			System.out.println("nome: " + listaProduto.get(i).nome);
-			System.out.println("valor: " + listaProduto.get(i).valor);
-			System.out.println("quantidade: " + listaProduto.get(i).quantidade);
-			System.out.println("descricao: " + listaProduto.get(i).descricao);
-			System.out.println("cod barra: " + listaProduto.get(i).codBarra);
+			System.out.println("nome: " + produto.nome);
+			System.out.println("valor: " + produto.valor);
+			System.out.println("cod barra: " + produto.codBarra);
+			System.out.println("id categoria: " + produto.idCategoria);
+			System.out.println("descricao: " + produto.descricao);
+			System.out.println("quantidade: " + produto.quantidade);
 		}
 	}
 
@@ -54,10 +58,13 @@ public class Produto {
 		System.out.println("");
 		System.out.println("nome: " + produto.nome);
 		System.out.println("valor: " + produto.valor);
-		System.out.println("quantidade: " + produto.quantidade);
-		System.out.println("descricao: " + produto.descricao);
 		System.out.println("cod barra: " + produto.codBarra);
+		System.out.println("id categoria: " + produto.idCategoria);
+		System.out.println("descricao: " + produto.descricao);
+		System.out.println("quantidade: " + produto.quantidade);
 	}
 
-
+	public String detalhesProduto() {
+		return "nome: " + nome + "\nvalor: " + valor + "\ncod barra: " + codBarra + "\nid categoria: " + idCategoria + "\ndescricao: " + descricao + "\nquantidade: " + quantidade;
+	}
 }

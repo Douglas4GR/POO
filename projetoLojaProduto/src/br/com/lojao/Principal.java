@@ -19,7 +19,8 @@ public class Principal {
 		lProd.add(prod);
 		System.out.println(prod.detalhesProduto());
 
-		int fila = 0;
+		int fim = 0;
+		int idAux = 3;
 		do{
 			System.out.println("Digite o nome do produto que deseja comprar:");
 			String nome = sc.next();
@@ -36,11 +37,12 @@ public class Principal {
 
 			prod = new Produto(nome, valor, quantidade, descricao, codBarra);
 			lProd.add(prod);
+			idAux++;
 
 			System.out.println("Deseja comprar mais algum produto? 1 - Sim / 0 - Não");
-			fila = sc.nextInt();
-		}while (fila == 0);
-		
+			fim = sc.nextInt();
+		}while (fim == 0);
+
 //		Produto exibir = new Produto();
 //		exibir.mostrarLProduto(lProd);
 //	}

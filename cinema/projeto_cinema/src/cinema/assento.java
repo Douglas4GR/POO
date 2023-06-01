@@ -16,4 +16,22 @@ public class assento {
         this.coluna = coluna;
         this.disponivel = disponivel;
     }
+    public String getId() {
+        return id;
+    }
+    public String getIdSesaao() {
+        return idSesaao;
+    }
+    public String getIdCliente() {
+        return idCliente;
+    }
+    public int getLinha() {
+        return linha;
+    }
+    public int getColuna() {
+        return coluna;
+    }
+    public boolean getDisponivel() {
+        return disponivel;
+    }
 }

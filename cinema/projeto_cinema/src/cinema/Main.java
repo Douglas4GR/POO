@@ -22,24 +22,30 @@ public class Main {
         Filme filme7 = new Filme("7", "A Lista de Schindler", 195, 14, "Sinopse", "Elenco", "EUA", "Inglês", "11/03/1994");
         Filmes.add(filme7);
 
-        ArrayList Sala = new ArrayList();
+        ArrayList<Sala> Salas = new ArrayList<Sala>();
         Sala sala1 = new Sala("1", 1, 100, 10, 10);
-        Sala.add(sala1);
+        Salas.add(sala1);
         Sala sala2 = new Sala("2", 2, 100, 10, 10);
-        Sala.add(sala2);
+        Salas.add(sala2);
         Sala sala3 = new Sala("3", 3, 100, 10, 10);
-        Sala.add(sala3);
+        Salas.add(sala3);
 
-        ArrayList Sessao = new ArrayList();
+        ArrayList<Sessao> Sessoes = new ArrayList<Sessao>();
         Sessao sessao1 = new Sessao("1", "1", "1", LocalDateTime.now(), 120, 18);
-        Sessao.add(sessao1);
+        Sessoes.add(sessao1);
         Sessao sessao2 = new Sessao("2", "2", "2", LocalDateTime.now(), 240, 12);
-        Sessao.add(sessao2);
+        Sessoes.add(sessao2);
         Sessao sessao3 = new Sessao("3", "3", "3", LocalDateTime.now(), 180, 14);
-        Sessao.add(sessao3);
+        Sessoes.add(sessao3);
 
         Filmes.forEach((filme) -> {
             System.out.println(filme.getNome());
+        });
+        Salas.forEach((sala) -> {
+            System.out.println(sala.getNumero());
+        });
+        Sessoes.forEach((sessao) -> {
+            System.out.println(sessao.getFilme());
         });
     }
 }

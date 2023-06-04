@@ -2,14 +2,14 @@ package cinema;
 
 public class Sala {
     private String id;
-    private int numero;
+    private String nome;
     private int capacidade;
     private int linhas;
     private int colunas;
 
-    public Sala(String id, int numero, int capacidade, int linhas, int colunas) {
+    public Sala(String id, String nome, int capacidade, int linhas, int colunas) {
         this.id = id;
-        this.numero = numero;
+        this.nome = nome;
         this.capacidade = capacidade;
         this.linhas = linhas;
         this.colunas = colunas;
@@ -17,8 +17,8 @@ public class Sala {
     public String getId() {
         return id;
     }
-    public int getNumero() {
-        return numero;
+    public String getNome() {
+        return nome;
     }
     public int getCapacidade() {
         return capacidade;

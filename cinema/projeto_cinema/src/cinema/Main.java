@@ -2,8 +2,11 @@ package cinema;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         //TODO Auto-generated method stub
         ArrayList<Filme> Filmes = new ArrayList<Filme>();
@@ -23,11 +26,11 @@ public class Main {
         Filmes.add(filme7);
 
         ArrayList<Sala> Salas = new ArrayList<Sala>();
-        Sala sala1 = new Sala("1", 1, 100, 10, 10);
+        Sala sala1 = new Sala("1", "Sala 1", 100, 10, 10);
         Salas.add(sala1);
-        Sala sala2 = new Sala("2", 2, 100, 10, 10);
+        Sala sala2 = new Sala("2", "Sala 2", 100, 10, 10);
         Salas.add(sala2);
-        Sala sala3 = new Sala("3", 3, 100, 10, 10);
+        Sala sala3 = new Sala("3", "Sala especial", 100, 10, 10);
         Salas.add(sala3);
 
         ArrayList<Sessao> Sessoes = new ArrayList<Sessao>();
@@ -42,10 +45,8 @@ public class Main {
             System.out.println(filme.getNome());
         });
         Salas.forEach((sala) -> {
-            System.out.println(sala.getNumero());
+            System.out.println(sala.getNome());
         });
-        Sessoes.forEach((sessao) -> {
-            System.out.println(sessao.getFilme());
-        });
+
     }
 }

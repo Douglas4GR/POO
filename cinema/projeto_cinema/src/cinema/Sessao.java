@@ -36,9 +36,8 @@ public class Sessao {
     public int getClassificacao() {
         return classificacao;
     }
-    public int getFilme() {
-        return 0;
-    }
+
+    // Verifica se a sessão existe
     public boolean sessaoExiste(Sessao sessao, ArrayList<Filme> filmes, ArrayList<Sala> salas) {
         for (Filme filme : filmes) {
             if (filme.getId().equals(sessao.idFilme)) { // Verifica se o filme existe
@@ -50,5 +49,25 @@ public class Sessao {
             }
         }
         return false;
+    }
+    // Mostra as sessões disponíveis no cinema e retorna a sessão escolhida
+    public Sessao escolherSessao(ArrayList<Sessao> sessoes, ArrayList<Filme> filmes, ArrayList<Sala> salas) {
+        System.out.println("Sessões disponíveis:");
+        for (Sessao sessao : sessoes) {
+            if (sessao.sessaoExiste(sessao, filmes, salas)) {
+                System.out.println(sessao.id + " - " + filmes.get(Integer.parseInt(sessao.idFilme)).getNome() + " - " + sessao.horario + " - " + salas.get(Integer.parseInt(sessao.idSala)).getNome());
+            }
+        }
+        System.out.println("Digite o ID da sessão desejada:");
+        String idSessao = Main.scanner.nextLine();
+        for (Sessao sessao : sessoes) {
+            if (sessao.id.equals(idSessao)) {
+                if (sessao.sessaoExiste(sessao, filmes, salas)) {
+                    return sessao;
+                }
+            }
+        }
+        System.out.println("Sessão não encontrada.");
+        return null;
     }
 }

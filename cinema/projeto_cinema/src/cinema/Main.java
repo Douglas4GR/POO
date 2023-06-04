@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static cinema.Bilhete.mostraBilhete;
+
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
@@ -60,20 +62,29 @@ public class Main {
         }
 
         ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
-        boolean sair = false;
-        while (sair == false) {
-            System.out.println("Deseja cadastrar um cliente? (S/N)");
-            String resposta = scanner.nextLine();
-            if (resposta.equals("S")) {
-                Cliente cliente = new Cliente("", "");
-                cliente.criaClienteManual();
-                Clientes.add(cliente);
-                Sessao sessaoEscolhida = new Sessao("", "", "", LocalDateTime.now(), 0, 0);
-                sessaoEscolhida.escolheSessao(Sessoes, Filmes, Salas);
-            } else {
-                sair = true;
-            }
-        }
+        Cliente cliente1 = new Cliente("1", "João");
+        Clientes.add(cliente1);
+        Cliente cliente2 = new Cliente("2", "Maria");
+        Clientes.add(cliente2);
+        Clientes.add(new Cliente("3", "José"));
+        Clientes.add(new Cliente("4", "Ana"));
+        Clientes.add(new Cliente("5", "Pedro"));
+
+        ArrayList<Bilhete> Bilhetes = new ArrayList<Bilhete>();
+        Bilhete bilhete1 = new Bilhete("1", "1", "1", "1", "1", "1", LocalDateTime.now(), 1, 1, 20);
+        Bilhetes.add(bilhete1);
+        Bilhete bilhete2 = new Bilhete("2", "2", "2", "2", "2", "2", LocalDateTime.now(), 2, 2, 20);
+        Bilhetes.add(bilhete2);
+        Bilhete bilhete3 = new Bilhete("3", "3", "3", "3", "3", "3", LocalDateTime.now(), 3, 3, 20);
+        Bilhetes.add(bilhete3);
+        Bilhete bilhete4 = new Bilhete("4", "4", "4", "4", "4", "4", LocalDateTime.now(), 4, 4, 20);
+        Bilhetes.add(bilhete4);
+        Bilhete bilhete5 = new Bilhete("5", "5", "5", "5", "5", "5", LocalDateTime.now(), 5, 5, 20);
+        Bilhetes.add(bilhete5);
+
+        Bilhetes.forEach((bilhete) -> {
+            mostraBilhete(bilhete, Sessoes, Clientes, Assentos, Filmes, Salas);
+        });
 
 
         /*Filmes.forEach((filme) -> {

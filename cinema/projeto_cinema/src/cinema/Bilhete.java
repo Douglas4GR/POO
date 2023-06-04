@@ -1,5 +1,7 @@
 package cinema;
 
+import java.util.ArrayList;
+
 public class Bilhete {
     private String id;
     private String idSessao;
@@ -25,37 +27,28 @@ public class Bilhete {
         this.linha = linha;
         this.coluna = coluna;
     }
-    public String getId() {
-        return id;
-    }
-    public String getIdSessao() {
-        return idSessao;
-    }
-    public String getIdCliente() {
-        return idCliente;
-    }
-    public String getIdAssento() {
-        return idAssento;
-    }
-    public String getIdFilme() {
-        return idFilme;
-    }
-    public String getIdSala() {
-        return idSala;
-    }
-    public String getData() {
-        return data;
-    }
-    public String getHorario() {
-        return horario;
-    }
-    public int getLinha() {
-        return linha;
-    }
-    public int getColuna() {
-        return coluna;
-    }
-    public float getPreco() {
-        return preco;
+    public String getId() { return id; }
+    public String getIdSessao() { return idSessao; }
+    public String getIdCliente() { return idCliente; }
+    public String getIdAssento() { return idAssento; }
+    public String getIdFilme() { return idFilme; }
+    public String getIdSala() { return idSala; }
+    public String getData() { return data; }
+    public String getHorario() { return horario; }
+    public int getLinha() { return linha; }
+    public int getColuna() { return coluna; }
+    public float getPreco() { return preco; }
+    public void mostraBilhete( ArrayList<Sessao> sessoes, ArrayList<Cliente> clientes, ArrayList<Assento> assentos, ArrayList<Filme> filmes, ArrayList<Sala> salas) {
+        System.out.println("Bilhete: " + this.id);
+        System.out.println("Filme: " + filmes.get(Integer.parseInt(this.idFilme)).getNome());
+        System.out.println("Sala: " + salas.get(Integer.parseInt(this.idSala)).getNome());
+        System.out.println("Sessão: " + sessoes.get(Integer.parseInt(this.idSessao)).getId());
+        System.out.println("Cliente: " + clientes.get(Integer.parseInt(this.idCliente)).getNome());
+        System.out.println("Assento: " + assentos.get(Integer.parseInt(this.idAssento)).getId());
+        System.out.println("Data: " + this.data);
+        System.out.println("Horário: " + this.horario);
+        System.out.println("Linha: " + this.linha);
+        System.out.println("Coluna: " + this.coluna);
+        System.out.println("Preço: " + this.preco);
     }
 }

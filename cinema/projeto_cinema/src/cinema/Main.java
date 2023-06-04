@@ -48,7 +48,7 @@ public class Main {
         Sessoes.add(sessao4);
         Sessao sessao5 = new Sessao("5", "3", "5", LocalDateTime.now(), 102, 12);
         Sessoes.add(sessao5);
-        
+
         ArrayList<Assento> Assentos = new ArrayList<Assento>();
         for (int i = 0; i < Salas.size(); i++) { // Para cada sala
             for (int j = 0; j < Salas.get(i).getLinhas(); j++) {

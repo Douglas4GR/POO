@@ -59,13 +59,28 @@ public class Main {
             }
         }
 
+        ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
+        boolean sair = false;
+        while (sair == false) {
+            System.out.println("Deseja cadastrar um cliente? (S/N)");
+            String resposta = scanner.nextLine();
+            if (resposta.equals("S")) {
+                Cliente cliente = new Cliente("", "");
+                cliente.criaClienteManual();
+                Clientes.add(cliente);
+                Sessao sessaoEscolhida = new Sessao("", "", "", LocalDateTime.now(), 0, 0);
+                sessaoEscolhida.escolheSessao(Sessoes, Filmes, Salas);
+            } else {
+                sair = true;
+            }
+        }
+
+
         /*Filmes.forEach((filme) -> {
             System.out.println(filme.getNome());
         });
         Salas.forEach((sala) -> {
             System.out.println(sala.getNome());
         });*/
-
-
     }
 }

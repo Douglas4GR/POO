@@ -51,7 +51,7 @@ public class Sessao {
         return false;
     }
     // Mostra as sessões disponíveis no cinema e retorna a sessão escolhida
-    public Sessao escolherSessao(ArrayList<Sessao> sessoes, ArrayList<Filme> filmes, ArrayList<Sala> salas) {
+    public Sessao escolheSessao(ArrayList<Sessao> sessoes, ArrayList<Filme> filmes, ArrayList<Sala> salas) {
         System.out.println("Sessões disponíveis:");
         for (Sessao sessao : sessoes) {
             if (sessao.sessaoExiste(sessao, filmes, salas)) {

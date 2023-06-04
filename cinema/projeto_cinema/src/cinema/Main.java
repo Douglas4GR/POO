@@ -30,23 +30,42 @@ public class Main {
         Salas.add(sala1);
         Sala sala2 = new Sala("2", "Sala 2", 100, 10, 10);
         Salas.add(sala2);
-        Sala sala3 = new Sala("3", "Sala especial", 100, 10, 10);
+        Sala sala3 = new Sala("3", "Sala especial", 80, 8, 10);
         Salas.add(sala3);
+        Sala sala4 = new Sala("4", "Sala 4", 100, 10, 10);
+        Salas.add(sala4);
+        Sala sala5 = new Sala("5", "Sala 5", 100, 10, 10);
+        Salas.add(sala5);
 
         ArrayList<Sessao> Sessoes = new ArrayList<Sessao>();
-        Sessao sessao1 = new Sessao("1", "1", "1", LocalDateTime.now(), 120, 18);
+        Sessao sessao1 = new Sessao("1", "1", "1", LocalDateTime.now(), 175, 18);
         Sessoes.add(sessao1);
-        Sessao sessao2 = new Sessao("2", "2", "2", LocalDateTime.now(), 240, 12);
+        Sessao sessao2 = new Sessao("2", "2", "2", LocalDateTime.now(), 238, 12);
         Sessoes.add(sessao2);
-        Sessao sessao3 = new Sessao("3", "3", "3", LocalDateTime.now(), 180, 14);
+        Sessao sessao3 = new Sessao("3", "6", "3", LocalDateTime.now(), 201, 14);
         Sessoes.add(sessao3);
+        Sessao sessao4 = new Sessao("4", "7", "4", LocalDateTime.now(), 195, 16);
+        Sessoes.add(sessao4);
+        Sessao sessao5 = new Sessao("5", "3", "5", LocalDateTime.now(), 102, 12);
+        Sessoes.add(sessao5);
+        
+        ArrayList<Assento> Assentos = new ArrayList<Assento>();
+        for (int i = 0; i < Salas.size(); i++) { // Para cada sala
+            for (int j = 0; j < Salas.get(i).getLinhas(); j++) {
+                for (int k = 0; k < Salas.get(i).getColunas(); k++) {
+                    Assento assento = new Assento(Integer.toString(Assentos.size() + 1), Integer.toString(i + 1), "", j + 1, k + 1, true);
+                    Assentos.add(assento);
+                }
+            }
+        }
 
-        Filmes.forEach((filme) -> {
+        /*Filmes.forEach((filme) -> {
             System.out.println(filme.getNome());
         });
         Salas.forEach((sala) -> {
             System.out.println(sala.getNome());
-        });
+        });*/
+
 
     }
 }

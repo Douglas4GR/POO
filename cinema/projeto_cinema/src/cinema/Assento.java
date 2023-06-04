@@ -1,18 +1,18 @@
 package cinema;
 
-public class assento {
+public class Assento {
     private String id;
     private String idSessao;
     private String idCliente;
-    private String fileira;
+    private int linha;
     private int coluna;
     private boolean disponivel;
 
-    public assento(String id, String idSessao, String idCliente, String fileira, int coluna, boolean disponivel) {
+    public Assento(String id, String idSessao, String idCliente, int linha, int coluna, boolean disponivel) {
         this.id = id;
         this.idSessao = idSessao;
         this.idCliente = idCliente;
-        this.fileira = fileira;
+        this.linha = linha;
         this.coluna = coluna;
         this.disponivel = disponivel;
     }
@@ -25,8 +25,8 @@ public class assento {
     public String getIdCliente() {
         return idCliente;
     }
-    public String getFileira() {
-        return fileira;
+    public int getLinha() {
+        return linha;
     }
     public int getColuna() {
         return coluna;

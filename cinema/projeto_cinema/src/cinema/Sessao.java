@@ -70,4 +70,6 @@ public class Sessao {
         System.out.println("Sessão não encontrada.");
         return null;
     }
+    // Mostra os assentos disponiveis na sessão e retorna o assento escolhido
+
 }

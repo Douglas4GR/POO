@@ -100,10 +100,6 @@ public class CRUDproduto {
         int id;
         System.out.println("Digite o id do produto: ");
         id = input.nextInt();
-        for (Produto produto : produtos) {
-            if (produto.getId() == id) {
-                produtos.remove(produto);
-            }
-        }
+        produtos.removeIf(produto -> produto.getId() == id);
     }
 }

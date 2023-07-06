@@ -5,6 +5,15 @@ public class Cama {
     String posicao;
     String descricao;
 
+// construtor
+    public Cama(int id, int codigoCama, boolean ehBeliche, String posicao, String descricao) {
+        this.id = id;
+        this.codigoCama = codigoCama;
+        this.ehBeliche = ehBeliche;
+        this.posicao = posicao;
+        this.descricao = descricao;
+    }
+
 // getters
     public int getId() {return id;}
     public int getCodigoCama() {return codigoCama;}

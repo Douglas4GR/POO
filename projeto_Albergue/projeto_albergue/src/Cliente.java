@@ -11,6 +11,19 @@ public class Cliente {
     String email;
     Date dataNascimento;
 
+// construtor
+    public Cliente(int id, String nome, String endereco, int postalCode, String pais, String CPF, String passaporte, String email, Date dataNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.postalCode = postalCode;
+        this.pais = pais;
+        this.CPF = CPF;
+        this.passaporte = passaporte;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+    }
+
 // getters
     public int getId() {return id;}
     public String getNome() {return nome;}

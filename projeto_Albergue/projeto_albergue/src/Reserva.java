@@ -8,6 +8,16 @@ public class Reserva {
     Date dataEntrada;
     Date dataSaida;
 
+// construtor
+    public Reserva(int id, int idCliente, int idQuarto, int idCama, Date dataEntrada, Date dataSaida) {
+        this.id = id;
+        this.idCliente = idCliente;
+        this.idQuarto = idQuarto;
+        this.idCama = idCama;
+        this.dataEntrada = dataEntrada;
+        this.dataSaida = dataSaida;
+    }
+
 // getters
     public int getId() {return id;}
     public int getIdCliente() {return idCliente;}

@@ -5,6 +5,15 @@ public class Quarto {
     boolean temBanheiro;
     String descricao;
 
+// construtor
+    public Quarto(int id, String nomeQuarto, String qtdeCamas, boolean temBanheiro, String descricao) {
+        this.id = id;
+        this.nomeQuarto = nomeQuarto;
+        this.qtdeCamas = qtdeCamas;
+        this.temBanheiro = temBanheiro;
+        this.descricao = descricao;
+    }
+
 // getters
     public int getId() {return id;}
     public String getNomeQuarto() {return nomeQuarto;}

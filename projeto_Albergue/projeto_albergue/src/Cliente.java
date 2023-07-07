@@ -49,8 +49,9 @@ public class Cliente {
     public void setDataNascimento(Date dataNascimento) {this.dataNascimento = dataNascimento;}
 
 // métodos para DB
-    public void inserir() throws SQLException {
-        ClienteDB clienteDAO = new ClienteDB();
-        clienteDAO.inserirCliente(this);
+    public void inserir(Connection connection) throws SQLException {
+        ClienteDB clienteDB = new ClienteDB(connection);
+        clienteDB.inserirCliente(this);
     }
+
 }

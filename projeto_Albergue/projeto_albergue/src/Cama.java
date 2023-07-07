@@ -1,5 +1,3 @@
-package br.edu.faeterj;
-
 public class Cama {
     int id;
     int codigoCama;

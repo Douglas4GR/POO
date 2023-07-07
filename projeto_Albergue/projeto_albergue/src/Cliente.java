@@ -59,4 +59,9 @@ public class Cliente {
         clienteDB.deletarCliente(this);
     }
 
+    public void atualizar(Connection connection) throws SQLException {
+        ClienteDB clienteDB = new ClienteDB(connection);
+        clienteDB.atualizarCliente(this);
+    }
+
 }

@@ -17,21 +17,28 @@ public class Main {
             // Exemplo de uso do Statement (com a tabela Cliente):
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM Cliente");
+            System.out.println("Clientes antes de alteração:");
             while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
 
             // Exemplo de insert do DB:
-            /* Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
+            /*Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
             Cliente cliente = new Cliente(3, "João", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "joao4444@gmail.com", dataNascimento);
-            clienteDB.inserirCliente(cliente); */
+            clienteDB.inserirCliente(cliente);*/
 
             // Exemplo de delete do DB (Deleta pelo id do cliente, nesse caso, o id 3):
-            Cliente cliente = new Cliente(3, null, null, 0, null, null, null, null, null);
-            clienteDB.deletarCliente(cliente);
+            /*Cliente cliente = new Cliente(3, null, null, 0, null, null, null, null, null);
+            clienteDB.deletarCliente(cliente);*/
+
+            // Exemplo de update do DB (Atualiza o nome do cliente com id 2):
+            Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
+            Cliente cliente = new Cliente(2, "Robson", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "", dataNascimento);
+            clienteDB.atualizarCliente(cliente);
 
             //mostrando clientes após alterar a tabela:
             resultSet = statement.executeQuery("SELECT * FROM Cliente");
+            System.out.println("Clientes após alteração:");
             while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,15 +1,23 @@
+import java.sql.*;
 import java.text.ParseException;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-
 
 public class Main {
-    public static void main(String[] args) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+    public static void main(String[] args) throws ParseException, SQLException {
 
-//        Date dataNascJoao = formato.parse("1999/12/31");
-//        Cliente cliente = new Cliente(1, "João", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "joao4444@gmail.com", dataNascJoao);
+        try {
 
-        System.out.println("Funcionando?");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/albergue", "root", "mySql1199");
+
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Cliente");
+
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("nome"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

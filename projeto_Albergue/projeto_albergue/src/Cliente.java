@@ -1,3 +1,5 @@
+import java.sql.*;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Cliente {
@@ -45,4 +47,10 @@ public class Cliente {
     public void setPassaporte(String passaporte) {this.passaporte = passaporte;}
     public void setEmail(String email) {this.email = email;}
     public void setDataNascimento(Date dataNascimento) {this.dataNascimento = dataNascimento;}
+
+// métodos para DB
+    public void inserir() throws SQLException {
+        ClienteDB clienteDAO = new ClienteDB();
+        clienteDAO.inserirCliente(this);
+    }
 }

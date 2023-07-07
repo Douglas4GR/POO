@@ -1,9 +1,11 @@
+package br.edu.faeterj;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class ReservaDB {
+public class QuartoDB {
     private Connection connection;
-    public ReservaDB() throws SQLException {
+    public QuartoDB() throws SQLException {
         connection = Conexao.getConnection();
     }
 }

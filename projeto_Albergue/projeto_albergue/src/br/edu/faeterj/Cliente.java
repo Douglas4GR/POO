@@ -1,4 +1,7 @@
+package br.edu.faeterj;
+
 import java.util.Date;
+import java.sql.SQLException;
 
 public class Cliente {
     int id;
@@ -45,4 +48,12 @@ public class Cliente {
     public void setPassaporte(String passaporte) {this.passaporte = passaporte;}
     public void setEmail(String email) {this.email = email;}
     public void setDataNascimento(Date dataNascimento) {this.dataNascimento = dataNascimento;}
+
+
+// enviando para DB
+public void inserir() throws SQLException {
+    // Lógica para inserção no bannco de dados usando um ClienteDAO
+    ClienteDB clienteDB = new ClienteDB();
+    clienteDB.inserirCliente(this);
+}
 }

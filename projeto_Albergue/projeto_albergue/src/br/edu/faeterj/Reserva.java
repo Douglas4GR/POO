@@ -1,3 +1,5 @@
+package br.edu.faeterj;
+
 import java.util.Date;
 
 public class Reserva {

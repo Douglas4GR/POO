@@ -25,4 +25,14 @@ public class ClienteDB {
                 statement.executeUpdate();
             }
         }
+
+        public void deletarCliente(Cliente cliente) throws SQLException {
+            String sql = "DELETE FROM Cliente WHERE id = ?";
+
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, cliente.getId());
+
+                statement.executeUpdate();
+            }
+        }
 }

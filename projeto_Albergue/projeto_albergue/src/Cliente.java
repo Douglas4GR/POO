@@ -54,4 +54,9 @@ public class Cliente {
         clienteDB.inserirCliente(this);
     }
 
+    public void deletar(Connection connection) throws SQLException {
+        ClienteDB clienteDB = new ClienteDB(connection);
+        clienteDB.deletarCliente(this);
+    }
+
 }

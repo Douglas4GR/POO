@@ -64,4 +64,9 @@ public class Cliente {
         clienteDB.atualizarCliente(this);
     }
 
+    public static Cliente buscar(Connection connection, int id) throws SQLException {
+        ClienteDB clienteDB = new ClienteDB(connection);
+        return clienteDB.buscarCliente(id);
+    }
+
 }

@@ -20,6 +20,9 @@ public class Main {
             System.out.println("Clientes antes de alteração:");
             while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
 
+
+            // Para testar o insert, delete e update, descomente as linhas abaixo:
+
             // Exemplo de insert do DB:
             /*Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
             Cliente cliente = new Cliente(3, "João", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "joao4444@gmail.com", dataNascimento);
@@ -30,9 +33,13 @@ public class Main {
             clienteDB.deletarCliente(cliente);*/
 
             // Exemplo de update do DB (Atualiza o nome do cliente com id 2):
-            Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
+            /*Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
             Cliente cliente = new Cliente(2, "Robson", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "", dataNascimento);
-            clienteDB.atualizarCliente(cliente);
+            clienteDB.atualizarCliente(cliente);*/
+
+            // Exemplo de busca do DB (Busca pelo id do cliente, nesse caso, o id 2):
+            Cliente cliente = clienteDB.buscarCliente(2);
+            System.out.println("Cliente buscado: " + cliente.getNome());
 
             //mostrando clientes após alterar a tabela:
             resultSet = statement.executeQuery("SELECT * FROM Cliente");

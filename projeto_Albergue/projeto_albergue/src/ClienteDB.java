@@ -53,4 +53,30 @@ public class ClienteDB {
                 statement.executeUpdate();
             }
         }
+
+        public Cliente buscarCliente(int id) throws SQLException {
+            Cliente cliente = null;
+            String sql = "SELECT * FROM Cliente WHERE id = ?";
+
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, id);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        String nome = resultSet.getString("nome");
+                        String endereco = resultSet.getString("endereco");
+                        int postalCode = resultSet.getInt("postalCode");
+                        String pais = resultSet.getString("pais");
+                        String CPF = resultSet.getString("CPF");
+                        String passaporte = resultSet.getString("passaporte");
+                        String email = resultSet.getString("email");
+                        Date dataNascimento = resultSet.getDate("dataNascimento");
+
+                        cliente = new Cliente(id, nome, endereco, postalCode, pais, CPF, passaporte, email, dataNascimento);
+                    }
+                }
+            }
+
+            return cliente;
+        }
 }

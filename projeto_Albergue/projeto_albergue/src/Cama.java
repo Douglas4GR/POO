@@ -1,3 +1,6 @@
+import java.sql.*;
+import java.sql.SQLException;
+
 public class Cama {
     int id;
     int codigoCama;
@@ -27,4 +30,25 @@ public class Cama {
     public void setEhBeliche(boolean ehBeliche) {this.ehBeliche = ehBeliche;}
     public void setPosicao(String posicao) {this.posicao = posicao;}
     public void setDescricao(String descricao) {this.descricao = descricao;}
+
+// métodos para DB
+    public void inserir(Connection connection) throws SQLException {
+        CamaDB camaDB = new CamaDB(connection);
+        camaDB.inserirCama(this);
+    }
+
+    public void deletar(Connection connection) throws SQLException {
+        CamaDB camaDB = new CamaDB(connection);
+        camaDB.deletarCama(this);
+    }
+
+    public void atualizar(Connection connection) throws SQLException {
+        CamaDB camaDB = new CamaDB(connection);
+        camaDB.atualizarCama(this);
+    }
+
+    public static Cama buscarCama(Connection connection, int id) throws SQLException {
+        CamaDB camaDB = new CamaDB(connection);
+        return camaDB.buscarCama(id);
+    }
 }

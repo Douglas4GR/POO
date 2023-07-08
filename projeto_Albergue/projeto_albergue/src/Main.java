@@ -10,44 +10,47 @@ public class Main {
         String username = "root";
         String password = "mySql1199";
 
+        // Aqui será feita a conexão com o banco de dados e teste dos métodos de alguma classe
+        // Os testes CRUD completos de cada classe estão no arquivo teste_para_cada_classe.txt
+
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            ClienteDB clienteDB = new ClienteDB(connection);
+            System.out.println("Database conectado!");
 
-
-            // Exemplo de uso do Statement (com a tabela Cliente):
+            CamaDB camaDB = new CamaDB(connection);
+            // usando o Statement para exibir a tabela Cama
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM Cliente");
-            System.out.println("Clientes antes de alteração:");
-            while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
 
+            // inserindo camas
+            Cama cama1 = new Cama(1, 1, true, "A", "Cama de baixo, proxima a janela");
+            camaDB.inserirCama(cama1);
+            Cama cama2 = new Cama(2, 2, true, "B", "Cama de cima, proxima a janela");
+            camaDB.inserirCama(cama2);
+            Cama cama3 = new Cama(3, 3, false, "C", "Cama de solteiro, proxima a porta");
+            camaDB.inserirCama(cama3);
+            Cama cama4 = new Cama(4, 4, false, "D", "Cama de solteiro, proxima a porta");
+            camaDB.inserirCama(cama4);
 
-            // Para testar o insert, delete e update, descomente as linhas abaixo:
+            // exibindo camas
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Cama");
+            System.out.println("Camas antes de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getBoolean("ehBeliche") + " " + resultSet.getString("posicao") + " " + resultSet.getString("descricao"));}
 
-            // Exemplo de insert do DB:
-            /*Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
-            Cliente cliente = new Cliente(3, "João", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "joao4444@gmail.com", dataNascimento);
-            clienteDB.inserirCliente(cliente);*/
+            // alterando posiçao e descrição da cama 4
+            cama4.setPosicao("E");
+            cama4.setDescricao("Cama de solteiro, proxima a janela");
+            camaDB.atualizarCama(cama4);
 
-            // Exemplo de delete do DB (Deleta pelo id do cliente, nesse caso, o id 3):
-            /*Cliente cliente = new Cliente(3, null, null, 0, null, null, null, null, null);
-            clienteDB.deletarCliente(cliente);*/
+            // deletando cama 3
+            camaDB.deletarCama(cama3);
 
-            // Exemplo de update do DB (Atualiza o nome do cliente com id 2):
-            /*Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
-            Cliente cliente = new Cliente(2, "Robson", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "", dataNascimento);
-            clienteDB.atualizarCliente(cliente);*/
-
-            // Exemplo de busca do DB (Busca pelo id do cliente, nesse caso, o id 2):
-            Cliente cliente = clienteDB.buscarCliente(2);
-            System.out.println("Cliente buscado: " + cliente.getNome());
-
-            //mostrando clientes após alterar a tabela:
-            resultSet = statement.executeQuery("SELECT * FROM Cliente");
-            System.out.println("Clientes após alteração:");
-            while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
-
+            // exibindo camas
+            resultSet = statement.executeQuery("SELECT * FROM Cama");
+            System.out.println("Camas depois de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getBoolean("ehBeliche") + " " + resultSet.getString("posicao") + " " + resultSet.getString("descricao"));}
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 }

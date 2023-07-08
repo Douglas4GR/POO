@@ -15,42 +15,45 @@ public class Main {
 
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database conectado!");
-
-            CamaDB camaDB = new CamaDB(connection);
-            // usando o Statement para exibir a tabela Cama
             Statement statement = connection.createStatement();
 
-            // inserindo camas
-            Cama cama1 = new Cama(1, 1, true, "A", "Cama de baixo, proxima a janela");
-            camaDB.inserirCama(cama1);
-            Cama cama2 = new Cama(2, 2, true, "B", "Cama de cima, proxima a janela");
-            camaDB.inserirCama(cama2);
-            Cama cama3 = new Cama(3, 3, false, "C", "Cama de solteiro, proxima a porta");
-            camaDB.inserirCama(cama3);
-            Cama cama4 = new Cama(4, 4, false, "D", "Cama de solteiro, proxima a porta");
-            camaDB.inserirCama(cama4);
+            /* Quartos */
 
-            // exibindo camas
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM Cama");
-            System.out.println("Camas antes de alteração:");
-            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getBoolean("ehBeliche") + " " + resultSet.getString("posicao") + " " + resultSet.getString("descricao"));}
+            QuartoDB quartoDB = new QuartoDB(connection);
 
-            // alterando posiçao e descrição da cama 4
-            cama4.setPosicao("E");
-            cama4.setDescricao("Cama de solteiro, proxima a janela");
-            camaDB.atualizarCama(cama4);
+            // inserindo quartos
+            Quarto quarto1 = new Quarto(1, "quarto 1", "4", true, "Quarto da frente, primeiro andar.");
+            quartoDB.inserirQuarto(quarto1);
+            Quarto quarto2 = new Quarto(2, "quarto 2", "6", true, "Quarto de trás, primeiro andar.");
+            quartoDB.inserirQuarto(quarto2);
+            Quarto quarto3 = new Quarto(3, "quarto 3", "4", true, "Quarto da frente, segundo andar.");
+            quartoDB.inserirQuarto(quarto3);
+            Quarto quarto4 = new Quarto(4, "quarto 4", "3", true, "Quarto de trás, segundo andar.");
+            quartoDB.inserirQuarto(quarto4);
 
-            // deletando cama 3
-            camaDB.deletarCama(cama3);
+            // exibindo quartos
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Quarto");
+            System.out.println("Quartos antes de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getString("nomeQuarto") + " " + resultSet.getString("qtdeCamas") + " " + resultSet.getBoolean("temBanheiro") + " " + resultSet.getString("descricao"));}
 
-            // exibindo camas
-            resultSet = statement.executeQuery("SELECT * FROM Cama");
-            System.out.println("Camas depois de alteração:");
-            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getBoolean("ehBeliche") + " " + resultSet.getString("posicao") + " " + resultSet.getString("descricao"));}
-            
+            // alterando descrição do quarto 4
+            quarto4.setDescricao("Segundo andar, com vista para o mar.");
+            quartoDB.atualizarQuarto(quarto4);
+
+            // deletando quarto 3
+            quartoDB.deletarQuarto(quarto3);
+
+            // exibindo quartos
+            resultSet = statement.executeQuery("SELECT * FROM Quarto");
+            System.out.println("Quartos depois de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getString("nomeQuarto") + " " + resultSet.getString("qtdeCamas") + " " + resultSet.getBoolean("temBanheiro") + " " + resultSet.getString("descricao"));}
+
+            // buscando quarto 2
+            Quarto quartoBuscado = quartoDB.buscarQuarto(2);
+            System.out.println("Quarto buscado: " + quartoBuscado.getId() + " " + quartoBuscado.getNomeQuarto() + " " + quartoBuscado.getQtdeCamas() + " " + quartoBuscado.getTemBanheiro() + " " + quartoBuscado.getDescricao());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

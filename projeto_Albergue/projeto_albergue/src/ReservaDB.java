@@ -19,7 +19,6 @@ public class ReservaDB {
             statement.setInt(4, reserva.getIdCama());
             statement.setDate(5, new java.sql.Date(reserva.getDataEntrada().getTime()));
             statement.setDate(6, new java.sql.Date(reserva.getDataSaida().getTime()));
-
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

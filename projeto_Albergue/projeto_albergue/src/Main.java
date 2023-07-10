@@ -17,7 +17,8 @@ public class Main {
             System.out.println("Database conectado!");
             Statement statement = connection.createStatement();
 
-            // Coloque aqui os testes dos métodos de alguma classe
+            // Coloque aqui os testes dos métodos de alguma classe aqui
+
 
         } catch (SQLException e) {
             e.printStackTrace();

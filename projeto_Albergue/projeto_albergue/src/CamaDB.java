@@ -17,8 +17,9 @@ public class CamaDB {
             statement.setBoolean(3, cama.getEhBeliche());
             statement.setString(4, cama.getPosicao());
             statement.setString(5, cama.getDescricao());
-
-            statement.executeUpdate();
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -27,8 +28,9 @@ public class CamaDB {
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, cama.getId());
-
-            statement.executeUpdate();
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -41,8 +43,9 @@ public class CamaDB {
             statement.setString(3, cama.getPosicao());
             statement.setString(4, cama.getDescricao());
             statement.setInt(5, cama.getId());
-
-            statement.executeUpdate();
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -52,19 +55,17 @@ public class CamaDB {
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
-
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    int codigoCama = resultSet.getInt("codigoCama");
-                    boolean ehBeliche = resultSet.getBoolean("ehBeliche");
-                    String posicao = resultSet.getString("posicao");
-                    String descricao = resultSet.getString("descricao");
-
-                    cama = new Cama(id, codigoCama, ehBeliche, posicao, descricao);
-                }
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int codigoCama = resultSet.getInt("codigoCama");
+                boolean ehBeliche = resultSet.getBoolean("ehBeliche");
+                String posicao = resultSet.getString("posicao");
+                String descricao = resultSet.getString("descricao");
+                cama = new Cama(id, codigoCama, ehBeliche, posicao, descricao);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return cama;
     }
 }

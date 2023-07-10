@@ -1,5 +1,44 @@
 // Para testar o insert, delete e update, recorte as linhas abaixo e envie para a Main:
 
+
+
+/* Quartos */
+
+            QuartoDB quartoDB = new QuartoDB(connection);
+
+            // inserindo quartos
+            Quarto quarto1 = new Quarto(1, "quarto 1", "4", true, "Quarto da frente, primeiro andar.");
+            quartoDB.inserirQuarto(quarto1);
+            Quarto quarto2 = new Quarto(2, "quarto 2", "6", true, "Quarto de trás, primeiro andar.");
+            quartoDB.inserirQuarto(quarto2);
+            Quarto quarto3 = new Quarto(3, "quarto 3", "4", true, "Quarto da frente, segundo andar.");
+            quartoDB.inserirQuarto(quarto3);
+            Quarto quarto4 = new Quarto(4, "quarto 4", "3", true, "Quarto de trás, segundo andar.");
+            quartoDB.inserirQuarto(quarto4);
+
+            // exibindo quartos
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Quarto");
+            System.out.println("Quartos antes de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getString("nomeQuarto") + " " + resultSet.getString("qtdeCamas") + " " + resultSet.getBoolean("temBanheiro") + " " + resultSet.getString("descricao"));}
+
+            // alterando descrição do quarto 4
+            quarto4.setDescricao("Segundo andar, com vista para o mar.");
+            quartoDB.atualizarQuarto(quarto4);
+
+            // deletando quarto 3
+            quartoDB.deletarQuarto(quarto3);
+
+            // exibindo quartos
+            resultSet = statement.executeQuery("SELECT * FROM Quarto");
+            System.out.println("Quartos depois de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getString("nomeQuarto") + " " + resultSet.getString("qtdeCamas") + " " + resultSet.getBoolean("temBanheiro") + " " + resultSet.getString("descricao"));}
+
+            // buscando quarto 2
+            Quarto quartoBuscado = quartoDB.buscarQuarto(2);
+            System.out.println("Quarto buscado: " + quartoBuscado.getId() + " " + quartoBuscado.getNomeQuarto() + " " + quartoBuscado.getQtdeCamas() + " " + quartoBuscado.getTemBanheiro() + " " + quartoBuscado.getDescricao());
+
+
+
 /* Camas */
 
             CamaDB camaDB = new CamaDB(connection);
@@ -34,34 +73,77 @@
 
 
 
-        /* Clientes */
+/* Clientes */
 
             ClienteDB clienteDB = new ClienteDB(connection);
 
-            // Exemplo de uso do Statement para exibir a tabela Cliente:
+            // exibindo clientes
             ResultSet resultSet = statement.executeQuery("SELECT * FROM Cliente");
             System.out.println("Clientes antes de alteração:");
             while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
 
-            // Exemplo de insert do DB:
+            // inserindo cliente 3
             Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
             Cliente cliente = new Cliente(3, "João", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "joao4444@gmail.com", dataNascimento);
             clienteDB.inserirCliente(cliente);
 
-            // Exemplo de delete do DB (Deleta pelo id do cliente, nesse caso, o id 3):
+            // deletando cliente 3
             Cliente cliente0 = new Cliente(3, null, null, 0, null, null, null, null, null);
             clienteDB.deletarCliente(cliente0);
 
-            // Exemplo de update do DB (Atualiza o nome do cliente com id 2):
+            // atualizando cliente 2
             Date dataNascimento1 = new SimpleDateFormat("dd/MM/yyyy").parse("01/01/1990");
             Cliente cliente1 = new Cliente(2, "Robson", "Rua Maria 1234", 123456789, "Brasil", "123.456.789-00", "54321-098", "", dataNascimento1);
             clienteDB.atualizarCliente(cliente1);
 
-            // Exemplo de busca do DB (Busca pelo id do cliente, nesse caso, o id 2):
+            // buscando cliente 2
             Cliente cliente2 = clienteDB.buscarCliente(2);
             System.out.println("Cliente buscado: " + cliente2.getNome());
 
-            //mostrando clientes após alterar a tabela:
+            //mostrando clientes após alteração
             resultSet = statement.executeQuery("SELECT * FROM Cliente");
             System.out.println("Clientes após alteração:");
             while (resultSet.next()) {System.out.println(resultSet.getString("nome"));}
+
+
+
+/* Reservas */
+
+            ReservaDB reservaDB = new ReservaDB(connection);
+
+            // inserindo reservas
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date data1 = formato.parse("01/08/2023");
+            Date data2 = formato.parse("02/08/2023");
+            Date data3 = formato.parse("03/08/2023");
+            Date data4 = formato.parse("04/08/2023");
+            Date data5 = formato.parse("05/08/2023");
+            Reserva reserva1 = new Reserva(1, 1, 1, 1, data1, data2);
+            reservaDB.inserirReserva(reserva1);
+            Reserva reserva2 = new Reserva(2, 2, 2, 2, data2, data3);
+            reservaDB.inserirReserva(reserva2);
+            Reserva reserva3 = new Reserva(3, 1, 2, 3, data3, data4);
+            reservaDB.inserirReserva(reserva3);
+            Reserva reserva4 = new Reserva(4, 2, 1, 4, data4, data5);
+            reservaDB.inserirReserva(reserva4);
+
+            // exibindo reservas
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Reserva");
+            System.out.println("Reservas antes de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getInt("idCliente") + " " + resultSet.getInt("idQuarto") + " " + resultSet.getInt("idCama") + " " + resultSet.getDate("dataEntrada") + " " + resultSet.getDate("dataSaida"));}
+
+            // alterando data de saída da reserva 4
+            reserva4.setDataSaida(data5);
+            reservaDB.atualizarReserva(reserva4);
+
+            // deletando reserva 3
+            reservaDB.deletarReserva(reserva3);
+
+            // exibindo reservas após alteração
+            resultSet = statement.executeQuery("SELECT * FROM Reserva");
+            System.out.println("Reservas depois de alteração:");
+            while (resultSet.next()) {System.out.println(resultSet.getInt("id") + " " + resultSet.getInt("idCliente") + " " + resultSet.getInt("idQuarto") + " " + resultSet.getInt("idCama") + " " + resultSet.getDate("dataEntrada") + " " + resultSet.getDate("dataSaida"));}
+
+            // buscando reserva 2
+            Reserva reservaBuscada = reservaDB.buscarReserva(2);
+            System.out.println("Reserva buscada: " + reservaBuscada.getId() + " " + reservaBuscada.getIdCliente() + " " + reservaBuscada.getIdQuarto() + " " + reservaBuscada.getIdCama() + " " + reservaBuscada.getDataEntrada() + " " + reservaBuscada.getDataSaida());

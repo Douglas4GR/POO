@@ -1,3 +1,4 @@
+import java.sql.*;
 import java.util.Date;
 
 public class Reserva {
@@ -33,4 +34,25 @@ public class Reserva {
     public void setIdCama(int idCama) {this.idCama = idCama;}
     public void setDataEntrada(Date dataEntrada) {this.dataEntrada = dataEntrada;}
     public void setDataSaida(Date dataSaida) {this.dataSaida = dataSaida;}
+
+//métodos para DB
+    public void inserir(Connection connection) throws SQLException {
+        ReservaDB reservaDB = new ReservaDB(connection);
+        reservaDB.inserirReserva(this);
+    }
+
+    public void deletar(Connection connection) throws SQLException {
+        ReservaDB reservaDB = new ReservaDB(connection);
+        reservaDB.deletarReserva(this);
+    }
+
+    public void atualizar(Connection connection) throws SQLException {
+        ReservaDB reservaDB = new ReservaDB(connection);
+        reservaDB.atualizarReserva(this);
+    }
+
+    public Reserva buscar(Connection connection) throws SQLException {
+        ReservaDB reservaDB = new ReservaDB(connection);
+        return reservaDB.buscarReserva(this.id);
+    }
 }

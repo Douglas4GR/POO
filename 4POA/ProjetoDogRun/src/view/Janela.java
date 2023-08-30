@@ -27,19 +27,20 @@ public class Janela extends JFrame implements ActionListener {
    
     public Janela() {
         super();
-               // ADICIONANDO ELEMENTOS AO FORMUL�RIO
+        // ADICIONANDO ELEMENTOS AO FORMUL�RIO
         this.setLayout(null);
         this.setSize(1280, 650);
         this.setLocation(50, 50);
         this.setResizable(false);
         getContentPane().setBackground(Color.white);
        
-        this.setTitle("Corrida de Threads");
+        this.setTitle("Corrida de Cachorros");
         velocimetro = new ImageIcon("./src/imagens/velocimetro.gif");
-        pista = new ImageIcon("./src/imagens/pista.png");
+        pista = new ImageIcon("./src/imagens/gramaVerde.png");
        
         this.lblPista = new JLabel(pista);
         this.lblVelocimetro = new JLabel(velocimetro);
+        
         // POSICIONANDO OS ELEMENTOS DO FORM
         this.lblVelocimetro.setBounds(200, 490, 150, 150);
         this.lblPista.setBounds(0, 0, 1280, 650);
@@ -49,17 +50,18 @@ public class Janela extends JFrame implements ActionListener {
        
         this.lblPista.setBackground(Color.BLACK);
 
-        this.btnCorrida = new JButton("Start Rally");
-        this.btnCancel = new JButton("Stop Rally");
+        // BOTÕES
+        this.btnCorrida = new JButton("Pexx Pexx!");
+        this.btnCancel = new JButton("Parou!");
         
-                  // POSIONADO OS BOT�ES
+        // POSIONADO OS BOT�ES
         this.btnCorrida.setBounds(500, 550, 120, 50);
         this.btnCancel.setBounds(640, 550, 120, 50);
         
-                    // INSERINDO AS IMAGENS DOS CACHORROS
-        imgCachorro1 = new ImageIcon("./src/imagens/cachorro1.jpg");
-        imgCachorro2 = new ImageIcon("./src/imagens/cachorro2.jpg");
-        imgCachorro3 = new ImageIcon("./src/imagens/cachorro3.jpg");
+        // INSERINDO AS IMAGENS DOS CACHORROS
+        imgCachorro1 = new ImageIcon("./src/imagens/Bobby.jpg");
+        imgCachorro2 = new ImageIcon("./src/imagens/Rex.jpg");
+        imgCachorro3 = new ImageIcon("./src/imagens/Tiffany.jpg");
        
         this.lblPista.add(btnCorrida);
         this.lblPista.add(btnCancel);
@@ -92,9 +94,9 @@ public class Janela extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent dispara) {
         if (dispara.getSource() == this.btnCorrida) {
-            this.lblPista.add(JLabelCachorros("Cachorro1", imgCachorro1, 0, 50));
-            this.lblPista.add(JLabelCachorros("Cachorro2", imgCachorro2, 0, 200));
-            this.lblPista.add(JLabelCachorros("Cachorro3", imgCachorro3, 0, 350));
+            this.lblPista.add(JLabelCachorros("Bobby", imgCachorro1, 0, 50));
+            this.lblPista.add(JLabelCachorros("Rex", imgCachorro2, 0, 200));
+            this.lblPista.add(JLabelCachorros("Tiffany", imgCachorro3, 0, 350));
         }
         if (dispara.getSource() == this.btnCancel) {
             System.exit(0);

@@ -29,7 +29,7 @@ public class CachorroThread extends JLabel implements Runnable {
    
     }
     
-    // M�TODO RUN() DA INTERFACE RUNNABLE
+    // MÉTODO RUN() DA INTERFACE RUNNABLE
     @Override
     public void run() {
         posX += new Random().nextInt(3) * 100;

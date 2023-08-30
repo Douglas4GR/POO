@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import control.CarroThread;
+import control.CachorroThread;
 
 @SuppressWarnings("serial")
 public class Janela extends JFrame implements ActionListener {
@@ -19,9 +19,9 @@ public class Janela extends JFrame implements ActionListener {
     private JButton btnCancel;
     private JLabel lblPista;
     private JLabel lblVelocimetro;
-    private ImageIcon imgCarro1;
-    private ImageIcon imgCarro2;
-    private ImageIcon imgCarro3;
+    private ImageIcon imgCachorro1;
+    private ImageIcon imgCachorro2;
+    private ImageIcon imgCachorro3;
     private ImageIcon pista;
     private ImageIcon velocimetro;
    
@@ -51,13 +51,15 @@ public class Janela extends JFrame implements ActionListener {
 
         this.btnCorrida = new JButton("Start Rally");
         this.btnCancel = new JButton("Stop Rally");
+        
                   // POSIONADO OS BOT�ES
         this.btnCorrida.setBounds(500, 550, 120, 50);
         this.btnCancel.setBounds(640, 550, 120, 50);
-                    // INSERINDO AS IMAGENS DOS CARROS
-        imgCarro1 = new ImageIcon("./src/imagens/carro1.jpg");
-        imgCarro2 = new ImageIcon("./src/imagens/carro2.jpg");
-        imgCarro3 = new ImageIcon("./src/imagens/carro3.jpg");
+        
+                    // INSERINDO AS IMAGENS DOS CACHORROS
+        imgCachorro1 = new ImageIcon("./src/imagens/cachorro1.jpg");
+        imgCachorro2 = new ImageIcon("./src/imagens/cachorro2.jpg");
+        imgCachorro3 = new ImageIcon("./src/imagens/cachorro3.jpg");
        
         this.lblPista.add(btnCorrida);
         this.lblPista.add(btnCancel);
@@ -77,21 +79,22 @@ public class Janela extends JFrame implements ActionListener {
         this.repaint();
 
     }
-     // INSERINDO AS JLABELS DOS CARROS
-     public JLabel JLabelCarros(String nome, ImageIcon img, int posX, int posY) {
-        CarroThread carro = new CarroThread(nome, img, posX, posY);
-        carro.setSize(256, 141);
-        carro.setVisible(true);
-        this.add(carro);
-        return carro;
+    
+     // INSERINDO AS JLABELS DOS CACHORROS
+     public JLabel JLabelCachorros(String nome, ImageIcon img, int posX, int posY) {
+        CachorroThread cachorro = new CachorroThread(nome, img, posX, posY);
+        cachorro.setSize(256, 141);
+        cachorro.setVisible(true);
+        this.add(cachorro);
+        return cachorro;
     }
           // PROGRAMANDO A A��O DOS BOT�ES
     @Override
     public void actionPerformed(ActionEvent dispara) {
         if (dispara.getSource() == this.btnCorrida) {
-            this.lblPista.add(JLabelCarros("Carro1", imgCarro1, 0, 50));
-            this.lblPista.add(JLabelCarros("Carro2", imgCarro2, 0, 200));
-            this.lblPista.add(JLabelCarros("Carro3", imgCarro3, 0, 350));
+            this.lblPista.add(JLabelCachorros("Cachorro1", imgCachorro1, 0, 50));
+            this.lblPista.add(JLabelCachorros("Cachorro2", imgCachorro2, 0, 200));
+            this.lblPista.add(JLabelCachorros("Cachorro3", imgCachorro3, 0, 350));
         }
         if (dispara.getSource() == this.btnCancel) {
             System.exit(0);

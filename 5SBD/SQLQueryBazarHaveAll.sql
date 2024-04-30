@@ -42,3 +42,40 @@ CREATE TABLE Clientes (
     ClientPostalCode VARCHAR(20),
     ClientCountry VARCHAR(40)
 );
+
+CREATE TABLE Products (
+    Sku VARCHAR(20) PRIMARY KEY,
+    ProductName VARCHAR(140) NOT NULL,
+    Currency VARCHAR(140),
+    ItemPrice DECIMAL(10, 2),
+    ShipServiceLevel VARCHAR(140),
+    IossNumber INT
+);
+
+CREATE TABLE ItensPedidos (
+    OrderId INT NOT NULL,
+    OrderItemId INT NOT NULL,
+    ItemPrice DECIMAL(10, 2),
+    BuyerEmail VARCHAR(200),
+    BuyerName VARCHAR(140),
+    ProductName VARCHAR(140),
+    QuantityPurchased INT,
+	PRIMARY KEY (OrderItemId)
+);
+
+CREATE TABLE Pedido (
+    OrderId INT PRIMARY KEY,
+    OrderItemId INT NOT NULL,
+    OrderTotalValue DECIMAL(10, 2),
+    PurchaseDate DATETIME NOT NULL,
+    PaymentsDate DATETIME,
+    BuyerName VARCHAR(140),
+    Cpf VARCHAR(11),
+    ShipAddress1 VARCHAR(140),
+    ShipCity VARCHAR(140),
+    ShipState VARCHAR(140),
+    ShipPostalCode VARCHAR(20),
+    ShipCountry VARCHAR(40),
+    IossNumber INT,
+	FOREIGN KEY (OrderItemId) REFERENCES ItensPedidos(OrderItemId)
+);

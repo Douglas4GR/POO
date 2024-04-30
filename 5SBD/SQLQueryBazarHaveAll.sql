@@ -1,0 +1,1 @@
+CREATE DATABASE Bazar_Have_All;

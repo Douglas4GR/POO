@@ -1,0 +1,6 @@
+order-id;order-item-id;purchase-date;payments-date;buyer-email;buyer-name;cpf;buyer-phone-number;sku;upc;product-name;quantity-purchased;currency;item-price;ship-service-level;ship-address-1;ship-address-2;ship-address-3;ship-city;ship-state;ship-postal-code;ship-country
+12345;1;01/05/2024;02/05/2024;joao@example.com;João da Silva;123.456.789-10;(11) 98765-4321;SKU123;UPC123;Product 1;2;USD;10.99;Standard;123 Street;Apartment 1;;São Paulo;SP;01234-567;Brazil
+67890;2;02/05/2024;03/05/2024;maria@example.com;Maria Souza;987.654.321-00;(22) 12345-6789;SKU456;UPC456;Product 2;1;EUR;20.50;Express;456 Avenue;;Building B;Rio de Janeiro;RJ;23456-789;Brazil
+13579;3;03/05/2024;04/05/2024;pedro@example.com;Pedro Oliveira;321.654.987-01;(33) 54321-9876;SKU789;UPC789;Product 3;3;GBP;15.75;Standard;789 Road;;;Brasília;DF;34567-890;Brazil
+24680;4;04/05/2024;05/05/2024;ana@example.com;Ana Santos;654.321.789-02;(44) 87654-3210;SKU012;UPC012;Product 4;1;USD;30.25;Standard;012 Boulevard;;Suite 3;Belo Horizonte;MG;45678-901;Brazil
+36912;5;05/05/2024;06/05/2024;carlos@example.com;Carlos Lima;987.123.456-03;(55) 32109-8765;SKU345;UPC345;Product 5;2;USD;25.00;Express;345 Lane;;;Curitiba;PR;56789-012;Brazil

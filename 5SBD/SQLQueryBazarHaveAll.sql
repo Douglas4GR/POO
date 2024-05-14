@@ -79,3 +79,8 @@ CREATE TABLE Pedido (
     IossNumber INT,
 	FOREIGN KEY (OrderItemId) REFERENCES ItensPedidos(OrderItemId)
 );
+
+CREATE TABLE Estoque (
+    Sku VARCHAR(20) PRIMARY KEY,
+    QuantidadeDisponivel INT
+);

@@ -34,6 +34,8 @@ BEGIN
 END;
 GO
 
+
+
 -- Stored Procedure para Verificar Pedidos
 CREATE PROCEDURE VerificarPedidos
 AS

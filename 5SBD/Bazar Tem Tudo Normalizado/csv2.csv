@@ -1,0 +1,8 @@
+order_ID,pucharse_date,paymants_date,IOSS_number,currency,recipient_name,order_item_ID,quantity_pucharsed,SKU,product_name,item_price,CPF,buyer_name,buyer_email,buyer_phone_number,adress_ID,ship_adress_1,ship_city,ship_state,ship_country,ship_postal_code,ship_service_level
+1,2024-05-10,2024-05-11,123456,USD,John Doe,101,2,SKU123,Product A,19.99,12345678901,Jane Smith,jane.smith@example.com,555-1234,1,123 Main St,Metropolis,NY,USA,10001,Standard
+2,2024-05-12,2024-05-13,654321,USD,Mary Johnson,102,1,SKU456,Product B,29.99,23456789012,Mike Brown,mike.brown@example.com,555-5678,2,456 Elm St,Gotham,NJ,USA,07001,Express
+3,2024-05-14,2024-05-15,987654,USD,Anna White,103,3,SKU789,Product C,39.99,34567890123,Lucy Green,lucy.green@example.com,555-8765,3,789 Oak St,Star City,CA,USA,90001,Priority
+4,2024-05-16,2024-05-17,135791,USD,Bob Black,104,4,SKU012,Product D,49.99,45678901234,Tom Blue,tom.blue@example.com,555-4321,4,101 Pine St,Central City,TX,USA,75001,Overnight
+5,2024-05-18,2024-05-19,246810,USD,Kate Grey,105,5,SKU345,Product E,59.99,56789012345,Alice Pink,alice.pink@example.com,555-6789,5,202 Birch St,Keystone City,IL,USA,60001,Standard
+6,2024-05-20,2024-05-21,112233,USD,Liam Black,106,102,SKU123,Product A,19.99,67890123456,Charlie White,charlie.white@example.com,555-9999,6,303 Cedar St,Smallville,KS,USA,66001,Standard  -- This order exceeds the initial stock of 100 units for SKU123
+7,2024-05-22,2024-05-23,223344,USD,Emma Brown,107,500,SKU456,Product B,29.99,78901234567,Olivia Green,olivia.green@example.com,555-8888,7,404 Maple St,Blüdhaven,NV,USA,89001,Express  -- This order exceeds the initial stock of 100 units for SKU456
